@@ -44,6 +44,8 @@
 
 				if(result){
 					alert("로그인 되었습니다.");
+					sessionStorage.login = "login";
+					sessionStorage.id = $("#id").val();
 
 				}else{
 					alert("비밀번호 또는 아이디가 잘못되었습니다.");

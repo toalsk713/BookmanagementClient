@@ -1,6 +1,30 @@
 
 
 	$(function(){
+
+		$.ajax({
+			url : "http://localhost:7070/book/session",
+			type : "GET",
+			dataType : "jsonp",
+			jsonp : "callback",
+
+			success : function(result){
+
+				// 세션있을때
+				if(!result.result){
+
+				}
+				else{
+					alert("로그인 한 후 이용 가능합니다.");
+					$(location).attr("href","main.html");
+				}
+			},
+			error : function(){
+
+			}
+		})
+
+		// 이미지 업로드
 		var imageLoader = document.getElementById('filePhoto');
 		imageLoader.addEventListener('change',handleImage,false);
 
@@ -90,6 +114,9 @@
 									},
 									success : function(result){
 
+										var line = $("<p></p>").text("--------------------------------------------");
+										thisTd.append(line);
+
 										var date = $("<p></p>").text("출판일: " + result.date);
 										thisTd.append(date);
 
@@ -104,6 +131,10 @@
 
 										var publisher = $("<p></p>").text("출판사: " + result.publisher);
 										thisTd.append(publisher);
+
+										var line2 = $("<p></p>").text("--------------------------------------------");
+										thisTd.append(line2);
+
 									},
 									error : function(){
 										alert("상세정보 보기 에러 발생!!");

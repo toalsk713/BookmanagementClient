@@ -42,6 +42,9 @@
 
                 alert("로그아웃 되었습니다.");
 
+                sessionStorage.login = "logout";
+                sessionStorage.removeItem("id");
+
                 var txt = "onclick=document.getElementById('id01').style.display='block'";
                 var in1 = $("<a href='#' id='login' " + txt +">로그인</a>");
                 $("#check").empty();
